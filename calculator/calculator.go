@@ -5,5 +5,5 @@ func Add(a, b float64) float64 {
 }
 
 func Subtract(a, b float64) float64 {
-	return b - a
+	return a - b
 }
