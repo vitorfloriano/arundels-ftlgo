@@ -13,3 +13,19 @@ func TestBook(t *testing.T) {
 		Copies: 2,
 	}
 }
+
+func TestBuy(t *testing.T) {
+	t.Parallel()
+	b := bookstore.Book{
+		Title: "Spark Joy",
+		Author: "Marie Kondo",
+		Copies: 2,
+	}
+	
+	want := 1
+	result := bookstore.Buy(b)
+	got := result.Copies
+	if want != got {
+		t.Errorf("want %d, got %d", want, got)
+	}
+}
