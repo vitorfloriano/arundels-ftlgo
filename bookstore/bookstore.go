@@ -21,6 +21,6 @@ func GetAllBooks(catalog []Book) []Book {
 	return catalog
 }
 
-func GetBook(catalog map[int]Book, id int) Book {
-	return catalog[id]
+func GetBook(catalog map[int]Book, id int) (Book, error) {
+	return catalog[id], nil
 }
