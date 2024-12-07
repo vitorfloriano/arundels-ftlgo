@@ -10,6 +10,8 @@ type Book struct {
 	Author string
 	Copies int
 	ID int
+	PriceCents int
+	DiscountPercent int
 }
 
 func Buy(b Book) (Book, error) {
@@ -34,4 +36,8 @@ func GetBook(catalog map[int]Book, id int) (Book, error) {
 		return Book{}, fmt.Errorf("ID %d doesn't exist", id)
 	}
 	return b, nil
+}
+
+func NetPriceCents(b Book) int {
+	return 0
 }
