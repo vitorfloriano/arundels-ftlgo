@@ -14,3 +14,13 @@ func TestTwice(t *testing.T) {
 		t.Errorf("twice %d: want %d, got %d", input, want, got)
 	}
 }
+
+func TestMyStringLen(t *testing.T) {
+	t.Parallel()
+	input := mytypes.MyString("hello")
+	want := 5
+	got := input.Len()
+	if want != got {
+		t.Errorf("want %d, got %d", want, got)
+	}
+}	
