@@ -44,3 +44,11 @@ func (b Book) NetPriceCents() int {
 	saving := b.PriceCents * b.DiscountPercent / 100
 	return b.PriceCents - saving
 }
+
+func (b *Book) SetPriceCents(price int) error {
+	if price < 0 {
+		return fmt.Errorf("error setting invalid price %d", price)
+	}
+	b.PriceCents = price
+	return nil
+}
