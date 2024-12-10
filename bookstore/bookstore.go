@@ -17,6 +17,12 @@ type Book struct {
 
 type Catalog map[int]Book
 
+var validCategory = map[string]bool{
+	"Autobiography": true,
+	"Large Print Romance": true,
+	"Particle Physics": true,
+}
+
 func Buy(b Book) (Book, error) {
 	if b.Copies == 0 {
 	return Book{}, errors.New("no copies left")
