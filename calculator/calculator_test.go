@@ -133,3 +133,11 @@ func TestSqrtInvalid(t *testing.T) {
 func closeEnough(a, b, tolerance float64) bool {
 	return math.Abs(a-b) <= tolerance
 }
+
+func TestAddMany(t *testing.T) {
+	t.Parallel()
+	type testCase struct {
+		inputs: []float64
+		want: float64
+	}
+	tc := []

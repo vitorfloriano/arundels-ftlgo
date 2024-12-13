@@ -31,3 +31,11 @@ func Sqrt(a float64) (float64, error) {
 	}
 	return math.Sqrt(a), nil
 }
+
+func AddMany(inputs ...float64) float64 {
+	var accum float64
+	for _, input := range inputs {
+		accum += input
+	}
+	return accum
+}	
