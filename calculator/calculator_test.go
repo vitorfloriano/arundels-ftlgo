@@ -162,7 +162,7 @@ func TestSubtractMany(t *testing.T) {
 	}
 	testCases := []testCase{
 		{inputs: []float64{}, want: 0},
-		{inputs: []float64{2}, want: 0},
+		{inputs: []float64{2}, want: 2},
 		{inputs: []float64{2, 2}, want: 0},
 		{inputs: []float64{2, 1}, want: 1},
 		{inputs: []float64{4, 3.5}, want: 0.5},

@@ -41,8 +41,12 @@ func AddMany(inputs ...float64) float64 {
 }	
 
 func SubtractMany(inputs ...float64) float64 {
-	for _, input := range inputs {
-		accum -= input
+	if len(inputs) == 0 {
+		return 0
 	}
-	return accum
+	result := inputs[0]
+	for _, i := range inputs[1:] {
+		result -= i
+	}
+	return result
 }
