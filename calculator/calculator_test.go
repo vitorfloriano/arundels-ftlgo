@@ -137,7 +137,40 @@ func closeEnough(a, b, tolerance float64) bool {
 func TestAddMany(t *testing.T) {
 	t.Parallel()
 	type testCase struct {
-		inputs: []float64
-		want: float64
+		inputs []float64
+		want float64
 	}
-	tc := []
+	testCases := []testCase{
+		{inputs: []float64{}, want: 0},
+		{inputs: []float64{2}, want: 2},
+		{inputs: []float64{2, 2}, want: 4},
+		{inputs: []float64{1, 2, 3}, want: 6},
+	}
+	for _, tc := range testCases {
+		got := calculator.AddMany(tc.inputs...)
+		if tc.want != got {
+			t.Errorf("AddMany(%v): want %f, got %f", tc.inputs, tc.want, got)
+		}
+	}
+}	
+
+func TestSubtractMany(t *testing.T) {
+	t.Parallel()
+	type testCase struct {
+		inputs []float64
+		want float64
+	}
+	testCases := []testCase{
+		{inputs: []float64{}, want: 0},
+		{inputs: []float64{2}, want: 0},
+		{inputs: []float64{2, 2}, want: 0},
+		{inputs: []float64{2, 1}, want: 1},
+		{inputs: []float64{4, 3.5}, want: 0.5},
+	}
+	for _, tc:= range testCases {
+		got := calculator.SubtractMany(tc.inputs...)
+		if tc.want != got {
+			t.Errorf("SubtractMany(%v): want %f, got %f", tc.inputs, tc.want, got)
+		}
+	}
+}
